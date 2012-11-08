@@ -12,32 +12,32 @@ class OptimisticLocking extends DataExtension {
 	public function onBeforeWrite() {
 		// update token, as validation passes
 		$this->owner->OLToken = SS_Datetime::now()->Format('U');
-	    parent::onBeforeWrite();
-  	}
+		parent::onBeforeWrite();
+	}
 
 
 	public function validate(ValidationResult $validationResult) {
 		if ($this->owner->ID >0 && $this->hasTokenChanged()) {
 			$validationResult->combineAnd(
 				new ValidationResult( false, _t('OptimisticLocking.NOSAVEREFRESH',
-			    "Save aborted as information has changed. Please refresh the page and try again.",
-    			'User tried to save the dataobject but it had changed since they started working on it.')
+				"Save aborted as information has changed. Please refresh the page and try again.",
+				'User tried to save the dataobject but it had changed since they started working on it.')
 			));
 		}
 		return $validationResult;
 	}
 
 
-  	public function hasTokenChanged() {
+	public function hasTokenChanged() {
 		// user_error if OLToken != database OLtoken: changes
-    	$dbOLToken = DataObject::get_by_id($this->owner->ClassName, $this->owner->ID, false)->OLToken;
-  		return ($this->owner->OLToken !== $dbOLToken);
-  	}
+		$dbOLToken = DataObject::get_by_id($this->owner->ClassName, $this->owner->ID, false)->OLToken;
+		return ($this->owner->OLToken !== $dbOLToken);
+	}
 
-  	public function getCMSFields() {
-  		$fields = parent::getCMSFields();
+	public function getCMSFields() {
+		$fields = parent::getCMSFields();
 		$this->extend('updateCMSFields', $fields);
-  		return $fields;
+		return $fields;
 	}
 
 	public function updateCMSFields(FieldList $fields) {
