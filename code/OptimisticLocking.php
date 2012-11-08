@@ -10,10 +10,9 @@ class OptimisticLocking extends DataExtension {
 	);
 
 	public function onBeforeWrite() {
-		// when not first write action
+		// update token, as validation passes
 		$this->owner->OLToken = SS_Datetime::now()->Format('U');
 	    parent::onBeforeWrite();
-	    return false;
   	}
 
 
@@ -30,7 +29,7 @@ class OptimisticLocking extends DataExtension {
 
 
   	public function hasTokenChanged() {
-		// user_error if OLToken != database OLtoken
+		// user_error if OLToken != database OLtoken: changes
     	$dbOLToken = DataObject::get_by_id($this->owner->ClassName, $this->owner->ID, false)->OLToken;
   		return ($this->owner->OLToken !== $dbOLToken);
   	}
