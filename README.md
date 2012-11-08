@@ -35,3 +35,5 @@ User 2 has now over-written the changes that User 1 made. They are completely go
 The lost update problem is solved. The problem with this approach is concurrency. User 1 is locking a record that they might not ever update. User 2 cannot even read the record because they want an exclusive lock when reading as well. This approach requires far too much exclusive locking, and the locks live far too long (often across user control - an *absolute* no-no). This approach is almost *never* implemented.
 
 3. Use Optimistic Locking. Optimistic locking does not use exclusive locks when reading. Instead, a check is made during the update to make sure that the record has not been changed since it was read. This module implements this.
+
+Thanks to [chrisrlong](http://www.dbasupport.com/forums/showthread.php?7282-What-is-Optimistic-Locking-vs.-Pessimistic-Locking&p=29149#post29149) for the original explanation.
