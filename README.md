@@ -10,7 +10,8 @@ It works by by blocking the save process if the data changes since it's loaded. 
 1. Extract / clone the package so that the path to the `_config.php` is `optimisticlocking\_config.php`.
 2. Open _config.php and add the OptimisticLocking class to your ``Test`` DataObject:
 
-    Object::add_extension("Test","OptimisticLocking");
+
+    `Object::add_extension("Test","OptimisticLocking");`
 
 
 ## What is Optimistic / Pessimistic locking?
