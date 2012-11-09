@@ -13,6 +13,8 @@ It works by by blocking the save process if the data changes since it's loaded. 
 
     `Object::add_extension("Test","OptimisticLocking");`
 
+I keep a [list of known bugs](https://github.com/svandragt/silverstripe-optimisticlocking/issues?labels=bug&page=1&state=open).
+
 
 ## What is Optimistic / Pessimistic locking?
 
