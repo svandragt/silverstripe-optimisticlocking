@@ -38,4 +38,4 @@ The lost update problem is solved. The problem with this approach is concurrency
 __3. Use Optimistic Locking.__ <Br>
 Optimistic locking does not use exclusive locks when reading. Instead, a check is made during the update to make sure that the record has not been changed since it was read. This module implements this.
 
-Thanks to [chrisrlong](http://www.dbasupport.com/forums/showthread.php?7282-What-is-Optimistic-Locking-vs.-Pessimistic-Locking&p=29149#post29149) for the original explanation.
+_Thanks to [chrisrlong](http://www.dbasupport.com/forums/showthread.php?7282-What-is-Optimistic-Locking-vs.-Pessimistic-Locking&p=29149#post29149) for the original explanation._
