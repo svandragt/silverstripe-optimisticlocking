@@ -2,7 +2,7 @@ silverstripe-optimisticlocking
 ==============================
 
 This is a very simple module that prevents your site users from losing data.
-It works by by blocking the save process if the data changes since it's loaded. (user1 starts editing, user 2 starts editing, user1 saves, now user2 can't overwrite user1's changes). By default, Silverstripe lets you lose data by overwriting whatever is in the database on save .
+It works by blocking the save process if the data changes since it's loaded. (user1 starts editing, user 2 starts editing, user1 saves, now user2 can't overwrite user1's changes). By default, Silverstripe lets you lose data by overwriting whatever is in the database on save .
 
 
 ## Usage:
