@@ -7,7 +7,7 @@ It works by blocking the save process if the data changes since it's loaded. (us
 
 ## Usage:
 
-1. Extract / clone the package so that the path to the `_config.php` is `optimisticlocking\_config.php`.
+1. Install using composer `composer require "svandragt/silverstripe-optimisticlocking:*"`
 2. Attach the OptimisticLocking class to your data objects / page types, eg. ``Test`` DataObject:
 
     `Object::add_extension("Test","OptimisticLocking");`
